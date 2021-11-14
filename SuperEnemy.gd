@@ -7,7 +7,7 @@ onready var eyes = $Eyes
 onready var shoottimer = $ShootTimer
 onready var Decal = load("res://Player/Decal.tscn")
 
-var health = 100
+var health = 1000
 var target
 var speed = 5
 var gravity = -8.0
@@ -45,6 +45,7 @@ func _physics_process(_delta):
 	if state == 1:
 			destination = null
 	else:
+		print("alert!")
 		eyes.look_at(target.global_transform.origin, Vector3.UP)
 		rotate_y(deg2rad(eyes.rotation.y * speed))
 		#destination = global_transform.origin.direction_to(target.global_transform.origin) * speed
@@ -68,6 +69,7 @@ func shoot():
 		if $Pivot/RayCast.is_colliding():
 			var shot = raycast.get_collider()
 			if shot.is_in_group("Player"):
+				print("hit")
 				if shot.has_method("damaged"):
 					shot.damaged(10)
 			else:
@@ -90,6 +92,7 @@ func _on_MovementTimer_timeout():
 
 func damaged(dmg):
 	health -= dmg
+	print(health)
 	if health < 0 or health == 0:
 		die()
 

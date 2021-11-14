@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mixkit-manual-siren-fire-alert-1652.mp3-0f76ee67ecedf1b73a604a8e93c6f268.mp3str"
+
+[deps]
+
+source_file="res://Assets/mixkit-manual-siren-fire-alert-1652.mp3"
+dest_files=[ "res://.import/mixkit-manual-siren-fire-alert-1652.mp3-0f76ee67ecedf1b73a604a8e93c6f268.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

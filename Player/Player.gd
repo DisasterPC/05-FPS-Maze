@@ -59,7 +59,6 @@ func shoot():
 		if $Pivot/RayCast.is_colliding():
 			var shot = raycast.get_collider()
 			if shot.is_in_group("enemy"):
-				print("hit")
 				if shot.has_method("damaged"):
 					shot.damaged(10)
 			else:
@@ -78,7 +77,6 @@ func _on_Timer_timeout():
 
 func damaged(dmg):
 	health -= dmg
-	print(health)
 	if health < 0 or health == 0:
 		die()
 

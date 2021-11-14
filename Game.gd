@@ -1,12 +1,12 @@
 extends Spatial
 
-onready var player1pos = $Player1Pos
-onready var player2pos = $Player2Pos
-onready var EnemyPos = $EnemyPos
-onready var EnemyPos2 = $EnemyPos2
-onready var EnemyPos3 = $EnemyPos3
-onready var EnemyPos4 = $EnemyPos4
-onready var EnemyPos5 = $EnemyPos5
+onready var player1pos = $Positions/Player1Pos
+onready var player2pos = $Positions/Player2Pos
+onready var EnemyPos = $Positions/EnemyPos
+onready var EnemyPos2 = $Positions/EnemyPos2
+onready var EnemyPos3 = $Positions/EnemyPos3
+onready var EnemyPos4 = $Positions/EnemyPos4
+onready var EnemyPos5 = $Positions/EnemyPos5
 onready var Enemies = 4
 
 
