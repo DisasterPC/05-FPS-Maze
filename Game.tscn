@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://UI/HUD.gd" type="Script" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://Assets/groundmaterial.tres" type="Material" id=8]
 [ext_resource path="res://Assets/waterbox.jpg" type="Texture" id=9]
 [ext_resource path="res://Assets/mixkit-manual-siren-fire-alert-1652.mp3" type="AudioStream" id=10]
-[ext_resource path="res://SuperEnemy/SuperEnemy.tscn" type="PackedScene" id=11]
 
 [sub_resource type="CapsuleMesh" id=15]
 
@@ -449,9 +448,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2763, 10.2376, 23.5609 )
 
 [node name="Enemy11" parent="Enemies" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.8172, 3.56972, 28.6449 )
-
-[node name="SuperEnemy" parent="Enemies" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1792, 11.4666, 91.6328 )
 
 [connection signal="pressed" from="GameOverScreen/dead/Restart" to="HUD" method="_on_Restart_pressed"]
 [connection signal="pressed" from="GameOverScreen/dead/Quit" to="." method="_on_Quit_pressed"]
