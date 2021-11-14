@@ -1,11 +1,6 @@
 extends KinematicBody
 
-enum {
-	IDLE,
-	ALERT,
-}
-
-var state = IDLE
+var state = 1
 
 onready var raycast = $forward
 onready var eyes = $Eyes
@@ -19,9 +14,9 @@ var gravity = -8.0
 var direction = Vector3()
 var velocity = Vector2.ZERO
 var jump_power = 20
-var view_player = false
 var rng = 0
 var space_state
+var destination
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	space_state = get_world().direct_space_state
@@ -30,12 +25,13 @@ func _ready():
 
 func _on_SightRange_body_entered(body):
 	if body.is_in_group("Player"):
-		state = ALERT
+		state = 2
 		target = body
 		shoottimer.start()
 
 func _on_SightRange_body_exited(body):
-	state = IDLE
+	target = null
+	state = 1
 	shoottimer.stop()
 
 func _physics_process(_delta):
@@ -46,17 +42,15 @@ func _physics_process(_delta):
 		velocity.y += gravity
 	if velocity != Vector3.ZERO:
 		velocity = move_and_slide(velocity, Vector3.UP)
-	match state:
-		IDLE:
-			velocity.x += rng
-			velocity.z += rng
-		ALERT:
-			eyes.look_at(target.global_transform.origin, Vector3.UP)
-			rotate_y(deg2rad(eyes.rotation.y * speed))
-			var goalx = target.global_transform.origin.x
-			var goalz = target.global_transform.origin.z
-			velocity.x += goalx
-			velocity.z += goalz
+	if state == 1:
+			destination = null
+	else:
+		print("alert!")
+		eyes.look_at(target.global_transform.origin, Vector3.UP)
+		rotate_y(deg2rad(eyes.rotation.y * speed))
+		#destination = global_transform.origin.direction_to(target.global_transform.origin) * speed
+		#velocity = move_and_slide(destination, Vector3.UP)
+	#velocity = move_and_slide(velocity, Vector3.UP)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -77,7 +71,7 @@ func shoot():
 			if shot.is_in_group("Player"):
 				print("hit")
 				if shot.has_method("damaged"):
-					shot.damaged(100)
+					shot.damaged(10)
 			else:
 				var t = $Pivot/RayCast.get_collider()
 				var p = $Pivot/RayCast.get_collision_point()
@@ -95,3 +89,13 @@ func _on_Timer_timeout():
 func _on_MovementTimer_timeout():
 	randomize()
 	rng = rand_range(-10,10)
+
+func damaged(dmg):
+	health -= dmg
+	print(health)
+	if health < 0 or health == 0:
+		die()
+
+func die():
+	$scream.play()
+	queue_free()

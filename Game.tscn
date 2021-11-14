@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://UI/HUD.gd" type="Script" id=2]
 [ext_resource path="res://Maze.gd" type="Script" id=3]
+[ext_resource path="res://Assets/mixkit-games-music-706.mp3" type="AudioStream" id=4]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 2, 40, 40 )
@@ -99,6 +100,21 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 10, 0 )
 [node name="Player2Pos" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.208, 16.0894, 21.329 )
 
+[node name="EnemyPos" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.208, 16.0894, 21.329 )
+
+[node name="EnemyPos2" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.3485, 16.0894, 21.329 )
+
+[node name="EnemyPos3" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.3485, 16.0894, 12.0322 )
+
+[node name="EnemyPos4" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2873, 16.0894, 6.29349 )
+
+[node name="EnemyPos5" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.78992, 32.1788, 8.89937 )
+
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.927001, -0.371426, 0.0520815, 0.0960859, 0.369413, 0.924284, -0.362543, -0.851808, 0.378135, 0, 23.3954, 0 )
 
@@ -181,6 +197,11 @@ margin_top = 46.3927
 margin_right = 21.1892
 margin_bottom = -172.608
 text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -2.019
+autoplay = true
 
 [connection signal="pressed" from="GameOverScreen/dead/Restart" to="HUD" method="_on_Restart_pressed"]
 [connection signal="pressed" from="GameOverScreen/dead/Quit" to="HUD" method="_on_Quit_pressed"]

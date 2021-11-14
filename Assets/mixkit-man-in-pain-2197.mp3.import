@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mixkit-man-in-pain-2197.mp3-144c5f49be66917683741eac81e518a6.mp3str"
+
+[deps]
+
+source_file="res://Assets/mixkit-man-in-pain-2197.mp3"
+dest_files=[ "res://.import/mixkit-man-in-pain-2197.mp3-144c5f49be66917683741eac81e518a6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

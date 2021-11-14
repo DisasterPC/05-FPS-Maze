@@ -67,7 +67,7 @@ emission_angle_degrees = 18.3
 emission_angle_filter_attenuation_db = -6.9
 
 [node name="RayCast" type="RayCast" parent="Pivot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.688618 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.213914, -0.688618 )
 enabled = true
 cast_to = Vector3( 0, 0, -100 )
 

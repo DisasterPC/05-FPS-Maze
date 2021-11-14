@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mixkit-games-music-706.mp3-8fe0a965ffc531b7ba88222efd67b0be.mp3str"
+
+[deps]
+
+source_file="res://Assets/mixkit-games-music-706.mp3"
+dest_files=[ "res://.import/mixkit-games-music-706.mp3-8fe0a965ffc531b7ba88222efd67b0be.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

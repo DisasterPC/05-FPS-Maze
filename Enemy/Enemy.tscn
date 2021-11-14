@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player/Blaster.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Flash.tres" type="Material" id=2]
 [ext_resource path="res://Assets/mixkit-laser-cannon-shot-1678.wav" type="AudioStream" id=3]
 [ext_resource path="res://Enemy.gd" type="Script" id=4]
 [ext_resource path="res://Assets/muzzleflash.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://Assets/mixkit-man-in-pain-2197.mp3" type="AudioStream" id=6]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 1, 0, 0, 1 )
@@ -26,7 +27,9 @@ extents = Vector3( 0.4, 0.1, 0.4 )
 [sub_resource type="SphereShape" id=6]
 radius = 10.0
 
-[node name="Enemy" type="KinematicBody"]
+[node name="Enemy" type="KinematicBody" groups=[
+"enemy",
+]]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 4 )
@@ -100,6 +103,13 @@ shape = SubResource( 6 )
 [node name="Eyes" type="Spatial" parent="."]
 
 [node name="MovementTimer" type="Timer" parent="."]
+
+[node name="scream" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13889, 0 )
+stream = ExtResource( 6 )
+unit_db = 8.247
+emission_angle_degrees = 35.4
+emission_angle_filter_attenuation_db = -10.4
 
 [connection signal="timeout" from="Pivot/Flash/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_Timer_timeout"]
